@@ -1,0 +1,22 @@
+{
+    "fd_para": {
+        "threshold": [
+            0.7,
+            0.8,
+            0.9
+        ],
+        "factor": 0.709,
+        "minsize": 20,
+        "margin": 0.5,
+        "eye2nose_x_ratio": 4
+    },
+    "fv_para":{
+        "distance_metric": 1,
+        "dist_thresh":0.25,
+        "similar_thresh":0.46,
+        "verify_times":3,
+        "through_similar_thresh":0.51,
+        "max_second_similar_thresh":0.4,
+        "eye2nose_x_ratio": 4
+    }
+}

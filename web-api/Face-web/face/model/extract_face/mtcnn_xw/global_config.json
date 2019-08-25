@@ -1,0 +1,18 @@
+{
+    "port_name":"/dev/ttyS0",
+    "open_frames":100,
+    "database_dir":"data/data_base",
+    "fd_method": "mtcnn",
+    "fa_method" : "affine",
+    "fe_method": "lightcnn",
+    "debug_show": 0,
+    "fd_config": {
+        "model_path": "/root/webs/facesite/face/model/weights/mtcnn",
+        "min_face_Dim": 16,
+        "detect_w": 576
+    },
+    "fe_config": {
+        "model_path": "facerecognition/data/models/faceFtrExtractor/lightcnn/lightCNN_62_checkpoint.pth.tar",
+        "use_flipped_images": 0
+    }
+}

@@ -1,0 +1,26 @@
+私网:http://172.16.120.34:8001/parse/
+公网:http://222.92.255.181:2391/parse/
+
+识别:
+	路径:http://172.16.120.34:8001/parse/main
+	传输方式:post
+	表单信息:
+		image:[图片文件,最好是jpg]	
+	返回:
+		json:
+			bare: "FULL":裸露
+				"PART":部分裸露
+				"NORMAL":不裸露
+			age: 年龄或None[未检测到人脸]
+			gender: 'M'/'F'/None[未检测到人脸]
+
+		'no image received!':未上传图片或图片格式不正确
+
+错误图片上传:
+	路径:http://172.16.120.34:8001/parse/err_upload
+	传输方式:post
+	表单信息:
+		image:[图片文件,最好是jpg]
+	返回:
+		'receive err image success!':服务器已接收到错误图片
+		'其他系统错误信息'
