@@ -1,22 +1,9 @@
-﻿*数据:
-	目前共5793个中外明星可供识别
-	注意：只要检测到人脸，即使该明星不在数据库中，服务器也会返回相似度最高的明星信息，请以返回的相似度进行阈值控制
-*ip:
-	<内网>:172.16.120.34:8000
-	<外网>:222.92.255.181:2390
-*格式：ip/face/<:model>/<:repo>/reco
-	<:model>:
-		base:使用通用明星模型
-		star:使用微调后明星模型（尚未部署完毕）
-	<:repo>:
-		key:使用明星的代表照特征作为注册
-		mean:使用明星总图片特征的均值作为注册
+This is the [website](http://18.221.4.227:8000/face/) for celebrity face recognition.
 
-*上传：post+form-data传递表单 上传图片的name属性必须是image
+You can upload one image with one or more celebrities in it. The server will receive the image and return a json list which contains one or more celebrity information.
 
-*返回：
-	json数据：返回图中明星的姓名/简介/性别/代表作/相似度(相似度越高代表结果越可信)
-	异常：
-		'no image received!':服务器未能收到图片，请检查图片文件是否合法
-		'invalid path!':请检查model或repo是否合法	
-		'no face is detected!':图片中不含有人脸或人脸未能检测到
+There are several points to note:
+
+1. I use a pretrained MTCNN to extract faces in images. Therefore some faces may be not detected. Then the result json list won't contain them.
+2. No matter whether there is actually the targeted celebrity in the back database, the server will always return the celebrity who is most similar with the input one. You need to check the similarity item in json to determine by yourself.
+3. You can also use the website as an API in the codes like requests in python3. The result is the same json list.
